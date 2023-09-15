@@ -20,7 +20,7 @@ variable "capacity_type" {
 
 variable "disk_size" {
   description = "Disk size for worker nodes."
-  default     = "20"
+  default     = "30"
 }
 
 variable "instance_types" {
@@ -42,15 +42,15 @@ variable "node_labels" {
 
 variable "desired_capacity" {
   description = "Desired capacity of the worker node group."
-  default     = 2
+  default     = 3
 }
 
 variable "min_capacity" {
   description = "Minimum capacity of the worker node group."
-  default     = 1
+  default     = 2
 }
 
 variable "max_capacity" {
   description = "Maximum capacity of the worker node group."
-  default     = 3
+  default     = 4
 }
