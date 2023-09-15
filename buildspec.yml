@@ -21,6 +21,7 @@ phases:
       - mv terraform /usr/local/bin/
       - terraform --version
       - echo "Terraform Installed"
-      - cd /c/Users/user/Documents/Terraform # Change this to your Terraform configuration directory
+      - cd cd /codebuild/output/src421933284/src
+ # Change this to your Terraform configuration directory
       - terraform init -input=false
       - terraform apply -auto-approve -input=false -var-file=myvars.tfvars
