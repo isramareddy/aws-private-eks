@@ -23,3 +23,4 @@ phases:
       - echo "Terraform Installed"
       - terraform init -input=false
       - terraform apply -auto-approve
+      - terraform destroy
