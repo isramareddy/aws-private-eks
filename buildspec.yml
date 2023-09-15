@@ -3,16 +3,15 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      terraform: 1.0  # Replace with your desired Terraform version
+      java: openjdk11
     commands:
-      - terraform init
-
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
+      - unzip terraform.zip
+      - chmod +x terraform
+      - mv terraform /usr/local/bin/
   build:
     commands:
+      - terraform --version
+      - terraform init
       - terraform plan -out=tfplan
-      - terraform apply -auto-approve tfplan
-
-artifacts:
-  files:
-    - '**/*'
-
+      - terraform apply tfplan
