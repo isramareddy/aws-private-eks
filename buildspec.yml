@@ -27,12 +27,9 @@ phases:
   build:
     commands:
       - echo "Build Phase"
-      # Place any additional build steps here
-
   post_build:
     commands:
       - echo "Post Build Phase"
-      # Place any additional post-build steps here
-      - cd path/to/terraform/config # Change this to your Terraform configuration directory
+      - cd /c/Users/user/Documents/Terraform # Change this to your Terraform configuration directory
       - terraform init -input=false
       - terraform apply -auto-approve -input=false -var-file=myvars.tfvars
