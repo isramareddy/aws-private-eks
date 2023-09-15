@@ -3,15 +3,16 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: openjdk11
+      terraform: 1.5.7   # Replace with the desired Terraform version
+
+  pre_build:
     commands:
-      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
-      - unzip terraform.zip
-      - chmod +x terraform
-      - mv terraform /usr/local/bin/
+      - echo "Pre-build phase"
+
   build:
     commands:
-      - terraform --version
+      - echo "Build phase"
+      - cd /c/Users/user/Documents/Terraform  # Replace with your Terraform configuration directory
       - terraform init
       - terraform plan -out=tfplan
-      - terraform apply tfplan
+      - terraform apply -auto-approve tfplan
