@@ -73,7 +73,7 @@ resource "aws_nat_gateway" "nat-gwvpc2" {
   subnet_id     = aws_subnet.publicsubnetvpc2.id
 
   tags = {
-    Name = "igwNATvpc2"
+    Name = "NATvpc2"
   }
 }
 
@@ -162,6 +162,6 @@ resource "aws_instance" "jump_server" {
   security_groups = [aws_security_group.bastion_sg.id]
 
   tags = {
-    Name = "BastionServer"
+    Name = "JumpServer"
   }
 }
