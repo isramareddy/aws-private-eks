@@ -16,7 +16,7 @@ phases:
     commands:
       - echo "Post-build phase"
       - echo "Initiating Terraform..."
-      - cd infra  # Adjust the path to your Terraform configuration directory
+      - cd /c/Users/user/Documents/Terraform  # Adjust the path to your Terraform configuration directory
       - terraform init
       - terraform plan -out=tfplan
       - terraform apply tfplan
