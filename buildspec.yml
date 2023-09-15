@@ -22,5 +22,13 @@ phases:
       - terraform --version
       - echo "Terraform Installed"
       - terraform init -input=false
-      - terraform apply -auto-approve
-      - terraform destroy
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
+
+post_build:
+  commands:
+    - terraform apply -auto-approve
+    - terraform destroy -auto-approve
