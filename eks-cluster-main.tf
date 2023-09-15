@@ -106,7 +106,7 @@ resource "aws_iam_role_policy_attachment" "autoscaler" {
 
 resource "aws_iam_instance_profile" "worker" {
   depends_on = [aws_iam_role.worker]
-  name       = "eks-workerrole"
+  name       = "eks-worker-role"
   role       = aws_iam_role.worker.name
 }
 
@@ -115,7 +115,7 @@ resource "aws_eks_cluster" "eks-cluster" {
   role_arn = aws_iam_role.eks-master.arn
 
   vpc_config {
-    subnet_ids = [aws_subnet.privatesubnetvpc2_az1.id, aws_subnet.privatesubnetvpc2_az2.id]
+    subnet_ids = [aws_subnet.privatesubnetvpc_az1.id, aws_subnet.privatesubnetvpc_az2.id]
   }
 
   depends_on = [
@@ -130,7 +130,7 @@ resource "aws_eks_node_group" "worker-nodegroup" {
   cluster_name    = aws_eks_cluster.eks-cluster.name
   node_group_name = var.node_group_name
   node_role_arn   = aws_iam_role.worker.arn
-  subnet_ids      = [aws_subnet.privatesubnetvpc2_az1.id, aws_subnet.privatesubnetvpc2_az2.id]
+  subnet_ids      = [aws_subnet.privatesubnetvpc_az1.id, aws_subnet.privatesubnetvpc_az2.id]
   capacity_type   = var.capacity_type
   disk_size       = var.disk_size
   instance_types = var.instance_types

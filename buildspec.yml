@@ -1,34 +1,20 @@
 version: 0.2
 
 phases:
-  pre_build:
+  install:
+    runtime-versions:
+      java: openjdk11
     commands:
-      - echo "Pre Build Phase"
-
-  build:
-    commands:
-      - echo "Build Phase"
-      # Place any additional build steps here
-
-  post_build:
-    commands:
-      - echo "Post Build Phase"
-      # Place any additional post-build steps here
-      - echo "Installing Terraform"
-      - wget https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip
-      - unzip terraform_1.5.7_linux_amd64.zip
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
+      - unzip terraform.zip
       - chmod +x terraform
       - mv terraform /usr/local/bin/
+  build:
+    commands:
       - terraform --version
-      - echo "Terraform Installed"
-      - terraform init -input=false
+      - terraform init
+      - terraform plan -out=tfplan
+      - terraform apply tfplan
+        # BELOW COMMAND IS FOR DESTRYOING THE TERRAFORM
+      - terraform destroy
 
-artifacts:
-  files:
-    - '**/*'
-  discard-paths: yes
-
-post_build:
-  commands:
-    - terraform apply -auto-approve
-    - terraform destroy -auto-approve
