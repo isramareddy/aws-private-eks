@@ -22,4 +22,4 @@ phases:
       - terraform --version
       - echo "Terraform Installed"
       - terraform init -input=false
-      - terraform apply -auto-approve -input=false -var-file=myvars.tfvars
+      - terraform apply -auto-approve
