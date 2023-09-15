@@ -1,25 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      terraform: 1.5.7
-    commands:
-      - echo "Installing AWS CLI"
-      - apt-get -y update
-      - apt-get -y install python3-pip
-      - pip3 install awscli
-      - aws --version
-      - echo "AWS CLI Installed"
-
-      - echo "Installing Terraform"
-      - wget https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip
-      - unzip terraform_1.5.7_linux_amd64.zip
-      - chmod +x terraform
-      - mv terraform /usr/local/bin/
-      - terraform --version
-      - echo "Terraform Installed"
-
   pre_build:
     commands:
       - echo "Pre Build Phase"
@@ -27,9 +8,19 @@ phases:
   build:
     commands:
       - echo "Build Phase"
+      # Place any additional build steps here
+
   post_build:
     commands:
       - echo "Post Build Phase"
+      # Place any additional post-build steps here
+      - echo "Installing Terraform"
+      - wget https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip
+      - unzip terraform_1.5.7_linux_amd64.zip
+      - chmod +x terraform
+      - mv terraform /usr/local/bin/
+      - terraform --version
+      - echo "Terraform Installed"
       - cd /c/Users/user/Documents/Terraform # Change this to your Terraform configuration directory
       - terraform init -input=false
       - terraform apply -auto-approve -input=false -var-file=myvars.tfvars
