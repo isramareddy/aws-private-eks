@@ -1,5 +1,5 @@
 resource "aws_subnet" "privatesubnetvpc_az1" {
-  cidr_block = "10.0.1.0/24"  # Replace with your desired CIDR block
+  cidr_block = "10.0.2.0/24"  # Replace with your desired CIDR block
   availability_zone = "ap-south-1b"  # Replace with your desired AZ
   vpc_id = aws_vpc.vpc.id  # Assuming you have a VPC resource named "vpc"
 
@@ -9,7 +9,7 @@ resource "aws_subnet" "privatesubnetvpc_az1" {
 }
 
 resource "aws_subnet" "privatesubnetvpc_az2" {
-  cidr_block = "10.0.2.0/24"  # Replace with your desired CIDR block
+  cidr_block = "10.0.3.0/24"  # Replace with your desired CIDR block
   availability_zone = "ap-south-1c"  # Replace with your desired AZ
   vpc_id = aws_vpc.vpc.id  # Assuming you have a VPC resource named "vpc"
 
