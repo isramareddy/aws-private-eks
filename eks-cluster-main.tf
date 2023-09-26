@@ -154,7 +154,7 @@ resource "aws_eks_node_group" "worker-nodegroup" {
   capacity_type   = var.capacity_type
   disk_size       = var.disk_size
   instance_types = var.instance_types
-  availability_zone = "ap-south-1a"  # Choose a different Availability Zone
+  #availability_zone = "ap-south-1a"  # Choose a different Availability Zone
 
   labels = var.node_labels
 
