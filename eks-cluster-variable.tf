@@ -5,7 +5,7 @@ variable "eks_master_role_name" {
 
 variable "worker_role_name" {
   description = "Name of the IAM role for EKS worker nodes."
-  default     = "eks-worker-role"
+  default     = "eks-worker"
 }
 
 variable "eks_cluster_name" {
