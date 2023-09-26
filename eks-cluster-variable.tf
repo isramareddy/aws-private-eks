@@ -26,7 +26,7 @@ variable "disk_size" {
 variable "instance_types" {
   description = "List of instance types for worker nodes."
   type        = list(string)
-  default     = ["t2.medium"]
+  default     = ["t2.large"]
 }
 
 variable "node_group_name" {
