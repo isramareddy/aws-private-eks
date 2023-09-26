@@ -12,8 +12,8 @@ phases:
     commands:
       - terraform --version
       - terraform init
-      - terraform plan -out=tfplan
-      - terraform apply tfplan
+      - terraform plan 
+      - terraform apply --auto-approve
         # BELOW COMMAND IS FOR DESTRYOING THE TERRAFORM
-      - terraform destroy
+      - terraform destroy --auto-approve
 
