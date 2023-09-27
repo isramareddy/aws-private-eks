@@ -20,7 +20,7 @@ variable "public_subnet_cidr_blocks" {
 
 variable "public_subnet_availability_zones" {
   description = "List of availability zones for public subnets."
-  default     = ["ap-south-1a"]
+  default     = ["ap-south-1c"]
 }
 
 variable "private_subnet_cidr_blocks" {
@@ -30,7 +30,7 @@ variable "private_subnet_cidr_blocks" {
 
 variable "private_subnet_availability_zones" {
   description = "List of availability zones for private subnets."
-  default     = ["ap-south-1b", "ap-south-1c"]
+  default     = ["ap-south-1a", "ap-south-1b"]
 }
 
 variable "bastion_ami" {
